@@ -3,24 +3,29 @@ const projectService = require('./../services/project.service.js');
 class ProjectController {
     async getOne(req, res) {
         const data = await projectService.getOne(req.params.id);
-        res.send(data);
+        console.log(data);
+        res.json(data);
     };
 
     async getAll(req, res) {
         const data = await projectService.getAll();
-        res.send(data);
+        res.json(data);
     };
 
     async create(req, res) {
-        res.send("Добавление проекта");
+        const data = await projectService.create(req.body);
+        res.json(data);
     }
 
     async update(req, res) {
-        res.send("Добавление проекта");
+        console.log(req.body);
+        const data = await projectService.update(req.body);
+        res.json(data);
     }
 
     async delete(req, res) {
-        res.send("Добавление проекта");
+        const data = await projectService.delete(req.params.id);
+        res.json(data);
     }
 }
 

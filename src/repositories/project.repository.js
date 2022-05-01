@@ -20,10 +20,11 @@ class ProjectRepository {
     }
 
     update(project) {
-        const { id, name } = project
+        const { id, name, description } = project
+        console.log(project);
         return this.dao.run(
-            `UPDATE projects SET name = ? WHERE id = ?`,
-            [name, id]
+            `UPDATE projects SET name = ?, description = ? WHERE id = ?`,
+            [name, description, id]
         )
     }
 

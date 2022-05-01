@@ -18,7 +18,19 @@ class ProjectService {
     }
 
     create(project) {
-        return this.projectRepository.create(project);
+        const { name, description } = project
+        console.log('create');
+        return this.projectRepository.create(name, description);
+    }
+
+    update(project) {
+        console.log(`update ${project.id}`);
+        return this.projectRepository.update(project);
+    }
+
+    delete(id) {
+        console.log('delete');
+        return this.projectRepository.delete(id);
     }
 }
 
