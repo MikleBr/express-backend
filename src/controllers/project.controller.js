@@ -4,6 +4,9 @@ class ProjectController {
     async getOne(req, res) {
         const data = await projectService.getOne(req.params.id);
         console.log(data);
+        if (!data) {
+            res.status(404).send('Project not found');
+        }
         res.json(data);
     };
 
